@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signature IPTV - FIFA WC</title>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<style>
+body{
+    margin:0;
+    background:#060818;
+    color:#fff;
+    font-family:Arial,sans-serif;
+}
+
+.header{
+    background:#0d1024;
+    padding:15px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+video{
+    width:100%;
+    height:220px;
+    background:#000;
+}
+
+.segment{
+    padding:15px;
+}
+
+.segment h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.channel-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.channel-card{
+    text-align:center;
+    cursor:pointer;
+}
+
+.logo{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    overflow:hidden;
+    background:#fff;
+    margin:auto;
+    border:3px solid #444;
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.channel-name{
+    margin-top:8px;
+    font-size:14px;
+}
+
+.channel-type{
+    color:#aaa;
+    font-size:12px;
+}
+
+.channel-card:hover{
+    transform:scale(1.05);
+}
+
+@media(max-width:600px){
+.channel-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+.logo{
+    width:75px;
+    height:75px;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="header">🏆 FIFA WC LIVE</div>
+
+<video id="video" controls autoplay></video>
+
+<div class="segment">
+<h2>FIFA WORLD CUP CHANNELS</h2>
+
+<div class="channel-grid">
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/TSportsHD_sf_bdix/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/tlogo.jpg"></div>
+<div class="channel-name">T Sports 1</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/TSportsHD_sf_nix/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/tlogo.jpg"></div>
+<div class="channel-name">T Sports 2</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/TSportsHD_rc_nix/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/tlogo.jpg"></div>
+<div class="channel-name">T Sports 3</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/TSportsHD_rc_bdix/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/tlogo.jpg"></div>
+<div class="channel-name">T Sports 4</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/TSportsHD_nk_nix/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/tlogo.jpg"></div>
+<div class="channel-name">T Sports 5</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/TSportsHD_nk_bdix/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/tlogo.jpg"></div>
+<div class="channel-name">T Sports 6</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/spotyfyz_nix/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/20260110000632_fimg1.jpg"></div>
+<div class="channel-name">SPORTS 1</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/spotyfyz_bdix/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/20260110000632_fimg1.jpg"></div>
+<div class="channel-name">SPORTS 2</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/somy_rc_bdix/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/20260110000735_fimg1.jpg"></div>
+<div class="channel-name">SPORTS 3</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/ptv_bdix/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/20260312214748_1-7-1.jpg"></div>
+<div class="channel-name">PTV 1</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/ptv_nix/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/20260312214748_1-7-1.jpg"></div>
+<div class="channel-name">PTV 2</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+<div class="channel-card" onclick="playChannel('http://172.172.172.2:3255/bein1/index.m3u8')">
+<div class="logo"><img src="http://172.172.172.2/static/images/20260217172937_20260206202629_beIN_SSPORTS_Portada.jpg"></div>
+<div class="channel-name">Bein 1 HD</div>
+<div class="channel-type">FIFA WC</div>
+</div>
+
+</div>
+</div>
+
+<script>
+function playChannel(url){
+    const video=document.getElementById("video");
+
+    if(Hls.isSupported()){
+        const hls=new Hls();
+        hls.loadSource(url);
+        hls.attachMedia(video);
+    }else{
+        video.src=url;
+    }
+}
+</script>
+
+</body>
+</html>
