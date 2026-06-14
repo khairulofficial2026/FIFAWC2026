@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সহজ MPD ভিডিও প্লেয়ার</title>
+    
+    <!-- dash.js লাইব্রেরি -->
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #00adb5;
+        }
+        .input-container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #333;
+            border-radius: 6px;
+            background-color: #222;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            border-color: #00adb5;
+        }
+        button {
+            padding: 12px 24px;
+            background-color: #00adb5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #007c82;
+        }
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+        }
+        video {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>MPD ভিডিও প্লেয়ার</h2>
+
+    <!-- লিংক বসানোর ঘর এবং বাটন -->
+    <div class="input-container">
+        <input type="text" id="mpdUrl" placeholder="https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/ubehitlwzo/out/v1/8e09c381a51f4366a19e979418112e8f/cenc.mpd">
+        <button onclick="playVideo()">প্লে করুন</button>
+    </div>
+
+    <!-- ভিডিও প্লেয়ার প্লেসহোল্ডার -->
+    <div class="video-container">
+        <video id="videoPlayer" controls></video>
+    </div>
+
+    <script>
+        var player = dashjs.MediaPlayer().create();
+        var videoElement = document.querySelector("#videoPlayer");
+
+        // ডিফল্ট একটা ডেমো লিংক আগে থেকেই বক্সে দিয়ে রাখলাম টেস্ট করার জন্য
+        document.getElementById("mpdUrl").value = "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd";
+
+        function playVideo() {
+            var url = document.getElementById("mpdUrl").value.trim();
+            
+            if (url === "") {
+                alert("দয়া করে একটি সঠিক .mpd লিংক দিন!");
+                return;
+            }
+
+            // ভিডিও প্লে করা শুরু করবে
+            player.initialize(videoElement, url, true);
+        }
+
+        // পেজ লোড হলে ডেমো ভিডিওটি রেডি করে রাখবে
+        window.onload = function() {
+            playVideo();
+        };
+    </script>
+
+</body>
+</html>
